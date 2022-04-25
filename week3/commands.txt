@@ -1,0 +1,19 @@
+> show databases;
+> use aditidb;
+> db.student.insert({_id:1,name:"aditi",usn:"1BM19CS007",sem:"6th",deptn:"cse",cgpa:9,hobbies:["cooking","reading"]});
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({_id:2,name:"arka",usn:"1BM19CS024",sem:"6th",deptn:"cse",cgpa:9.3,hobbies:["football","games"]});
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({_id:3,name:"hasman",usn:"1BM19IS087",sem:"5th",deptn:"ise",cgpa:8.6,hobbies:["dancing","games"]});
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({_id:4,name:"rohan",usn:"1BM19CV084",sem:"5th",deptn:"cve",cgpa:8.9,hobbies:["sports","guitar"]});
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({_id:5,name:"arnav",usn:"1BM19CS028",sem:"6th",deptn:"cse",cgpa:8.87,hobbies:["chess","drums"]});
+WriteResult({ "nInserted" : 1 })
+
+> db.student.aggregate({$match:{deptn:"cse"}},{$group:{_id:"$sem",avgcgpa:{$avg:"$cgpa"}}},{$match:{avgcgpa:{$gt:7.5}}});
+{ "_id" : "6th", "avgcgpa" : 9.056666666666667 }
+
+mongoexport --host localhost --db aditidb  --collection student  --type=csv --out /home/bmsce/007/output.txt --fields "name","usn","sem","deptn","cgpa","hobbies"
+2022-04-25T12:28:59.056+0530	connected to: localhost
+2022-04-25T12:28:59.056+0530	exported 5 records
