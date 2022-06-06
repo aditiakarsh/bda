@@ -1,0 +1,63 @@
+~$ start-all.sh
+user@bmsce-Precision-T1700:~$ jps
+5569 NodeManager
+4097 DataNode
+3922 NameNode
+4485 ResourceManager
+4311 SecondaryNameNode
+5692 Jps
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -mkdir /abc
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /
+Found 11 items
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 10:07 /FFF
+drwxr-xr-x   - hduser supergroup          0 2022-06-06 11:35 /abc
+-rw-r--r--   1 hduser supergroup         10 2022-06-04 10:14 /bmsce
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:16 /ddd
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 09:45 /ff
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 15:22 /j
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:45 /shyam
+drwxr-xr-x   - hduser supergroup          0 2022-05-31 09:57 /ss
+drwxr-xr-x   - hduser supergroup          0 2022-06-03 12:36 /sss
+drwxrwxr-x   - hduser supergroup          0 2019-08-01 16:19 /tmp
+drwxr-xr-x   - hduser supergroup          0 2019-08-01 16:03 /user
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -put /home/hduser/Desktop/Welcome.txt /abc/Newp.txt
+hduser@bmsce-Precision-T1700:~$ ls
+ 1BM18CS035      derby.log   Downloads          hadoop-2.6.0.tar.gz   lab3.txt                                       Pictures                Public      toinstalledlist
+ alterfile.txt   Desktop     examples.desktop   hive                  metastore_db                                   pig_1564816082257.log   R           Videos
+ command.class   Documents   file1.txt          inheritance.java      Music                                          pt                      ron         xyz.txt
+ command.java    downloads   file23.txt         lab2.txt             'Packet Tracer 7.2.1 for Linux 64 bit.tar.gz'   PT72Installer           Templates
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -cat /abc/Newp.txt
+welcome
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromLocal  /home/hduser/Desktop/Merge.txt /FFF
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -get /abc/Newp.txt /home/hduser/Downloads/yoskjs.txt
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -getmerge  /abc/Newp.txt /abc/Newp.txt /home/hduser/Downloads/Merge007.txt
+hduser@bmsce-Precision-T1700:~$ cat /home/hduser/Downloads/Merge007.txt
+welcome
+welcome
+hduser@bmsce-Precision-T1700:~$  hdfs dfs -cat  /home/hduser/Downloads/Merge007.txt
+cat: `/home/hduser/Downloads/Merge007.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hadoop fs -getfacl /abc/
+# file: /abc
+# owner: hduser
+# group: supergroup
+user::rwx
+group::r-x
+other::r-x
+
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyToLocal /abc/Newp.txt /home/hduser/Desktop
+hduser@bmsce-Precision-T1700:~$ hadoop fs -mv /abc /FFF
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /FFF
+Found 6 items
+-rw-r--r--   1 hduser supergroup          0 2022-06-01 09:40 /FFF/WC.txt
+drwxr-xr-x   - hduser supergroup          0 2022-06-06 11:47 /FFF/abc
+drwxr-xr-x   - hduser supergroup          0 2022-06-04 09:38 /FFF/bmsce
+-rw-r--r--   1 hduser supergroup         10 2022-06-04 10:07 /FFF/file2.txt
+drwxr-xr-x   - hduser supergroup          0 2022-06-01 14:56 /FFF/ronaldo
+-rw-r--r--   1 hduser supergroup         24 2022-06-01 09:45 /FFF/xyz.txt
+hduser@bmsce-Precision-T1700:~$ hadoop fs -cp /CSE/  /LLL
+hduser@bmsce-Precision-T1700:~$ hadoop fs -cp /FFF/xyz.txt /LLL
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /LLL
+-rw-r--r--   1 hduser supergroup         24 2022-06-06 12:12 /LLL
+
+
+
