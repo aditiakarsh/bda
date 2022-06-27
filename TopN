@@ -1,0 +1,161 @@
+duser@bmsce-Precision-T1700:~$ start-all.sh
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+Starting namenodes on [localhost]
+hduser@localhost's password: 
+localhost: namenode running as process 4096. Stop it first.
+hduser@localhost's password: 
+localhost: datanode running as process 4269. Stop it first.
+Starting secondary namenodes [0.0.0.0]
+hduser@0.0.0.0's password: 
+0.0.0.0: secondarynamenode running as process 5410. Stop it first.
+starting yarn daemons
+resourcemanager running as process 5569. Stop it first.
+hduser@localhost's password: 
+localhost: nodemanager running as process 5901. Stop it first.
+hduser@bmsce-Precision-T1700:~$ hdfs dfs copyFromLocal /home/hduser/desktop/copied.txt /aditi/Newbda.txt
+copyFromLocal: Unknown command
+Did you mean -copyFromLocal?  This command begins with a dash.
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromLocal /home/hduser/desktop/copied.txt /aditi/Newbda.txt
+copyFromLocal: `/home/hduser/desktop/copied.txt': No such file or directory
+hduser@bmsce-Precision-T1700:~$ hdfs dfs -copyFromLocal /home/hduser/Desktop/copied.txt /aditi/Newbda.txt
+hduser@bmsce-Precision-T1700:~$ hadoop jar /home/hduser/eclipse-workspace/007/TopNaditi.jar TopN /aditi/Newbda.txt /output
+22/06/27 12:37:17 INFO Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id
+22/06/27 12:37:17 INFO jvm.JvmMetrics: Initializing JVM Metrics with processName=JobTracker, sessionId=
+Exception in thread "main" org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:54310/output already exists
+	at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:146)
+	at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:562)
+	at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:432)
+	at org.apache.hadoop.mapreduce.Job$10.run(Job.java:1296)
+	at org.apache.hadoop.mapreduce.Job$10.run(Job.java:1293)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1628)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:1293)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1314)
+	at TopN.main(TopN.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:221)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
+hduser@bmsce-Precision-T1700:~$ hadoop jar /home/hduser/eclipse-workspace/007/TopNaditi.jar TopN /aditi/Newbda.txt /outputaditi
+22/06/27 12:37:27 INFO Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id
+22/06/27 12:37:27 INFO jvm.JvmMetrics: Initializing JVM Metrics with processName=JobTracker, sessionId=
+22/06/27 12:37:27 INFO input.FileInputFormat: Total input paths to process : 1
+22/06/27 12:37:27 INFO mapreduce.JobSubmitter: number of splits:1
+22/06/27 12:37:27 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_local1553539377_0001
+22/06/27 12:37:27 INFO mapreduce.Job: The url to track the job: http://localhost:8080/
+22/06/27 12:37:27 INFO mapreduce.Job: Running job: job_local1553539377_0001
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: OutputCommitter set in config null
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: OutputCommitter is org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: Waiting for map tasks
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: Starting task: attempt_local1553539377_0001_m_000000_0
+22/06/27 12:37:27 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+22/06/27 12:37:27 INFO mapred.MapTask: Processing split: hdfs://localhost:54310/aditi/Newbda.txt:0+24
+22/06/27 12:37:27 INFO mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)
+22/06/27 12:37:27 INFO mapred.MapTask: mapreduce.task.io.sort.mb: 100
+22/06/27 12:37:27 INFO mapred.MapTask: soft limit at 83886080
+22/06/27 12:37:27 INFO mapred.MapTask: bufstart = 0; bufvoid = 104857600
+22/06/27 12:37:27 INFO mapred.MapTask: kvstart = 26214396; length = 6553600
+22/06/27 12:37:27 INFO mapred.MapTask: Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: 
+22/06/27 12:37:27 INFO mapred.MapTask: Starting flush of map output
+22/06/27 12:37:27 INFO mapred.MapTask: Spilling map output
+22/06/27 12:37:27 INFO mapred.MapTask: bufstart = 0; bufend = 48; bufvoid = 104857600
+22/06/27 12:37:27 INFO mapred.MapTask: kvstart = 26214396(104857584); kvend = 26214376(104857504); length = 21/6553600
+22/06/27 12:37:27 INFO mapred.MapTask: Finished spill 0
+22/06/27 12:37:27 INFO mapred.Task: Task:attempt_local1553539377_0001_m_000000_0 is done. And is in the process of committing
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: map
+22/06/27 12:37:27 INFO mapred.Task: Task 'attempt_local1553539377_0001_m_000000_0' done.
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: Finishing task: attempt_local1553539377_0001_m_000000_0
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: map task executor complete.
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: Waiting for reduce tasks
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: Starting task: attempt_local1553539377_0001_r_000000_0
+22/06/27 12:37:27 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+22/06/27 12:37:27 INFO mapred.ReduceTask: Using ShuffleConsumerPlugin: org.apache.hadoop.mapreduce.task.reduce.Shuffle@2d30e09e
+22/06/27 12:37:27 INFO reduce.MergeManagerImpl: MergerManager: memoryLimit=334338464, maxSingleShuffleLimit=83584616, mergeThreshold=220663392, ioSortFactor=10, memToMemMergeOutputsThreshold=10
+22/06/27 12:37:27 INFO reduce.EventFetcher: attempt_local1553539377_0001_r_000000_0 Thread started: EventFetcher for fetching Map Completion Events
+22/06/27 12:37:27 INFO reduce.LocalFetcher: localfetcher#1 about to shuffle output of map attempt_local1553539377_0001_m_000000_0 decomp: 62 len: 66 to MEMORY
+22/06/27 12:37:27 INFO reduce.InMemoryMapOutput: Read 62 bytes from map-output for attempt_local1553539377_0001_m_000000_0
+22/06/27 12:37:27 INFO reduce.MergeManagerImpl: closeInMemoryFile -> map-output of size: 62, inMemoryMapOutputs.size() -> 1, commitMemory -> 0, usedMemory ->62
+22/06/27 12:37:27 INFO reduce.EventFetcher: EventFetcher is interrupted.. Returning
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: 1 / 1 copied.
+22/06/27 12:37:27 INFO reduce.MergeManagerImpl: finalMerge called with 1 in-memory map-outputs and 0 on-disk map-outputs
+22/06/27 12:37:27 INFO mapred.Merger: Merging 1 sorted segments
+22/06/27 12:37:27 INFO mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 57 bytes
+22/06/27 12:37:27 INFO reduce.MergeManagerImpl: Merged 1 segments, 62 bytes to disk to satisfy reduce memory limit
+22/06/27 12:37:27 INFO reduce.MergeManagerImpl: Merging 1 files, 66 bytes from disk
+22/06/27 12:37:27 INFO reduce.MergeManagerImpl: Merging 0 segments, 0 bytes from memory into reduce
+22/06/27 12:37:27 INFO mapred.Merger: Merging 1 sorted segments
+22/06/27 12:37:27 INFO mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 57 bytes
+22/06/27 12:37:27 INFO mapred.LocalJobRunner: 1 / 1 copied.
+22/06/27 12:37:28 INFO Configuration.deprecation: mapred.skip.on is deprecated. Instead, use mapreduce.job.skiprecords
+22/06/27 12:37:28 INFO mapred.Task: Task:attempt_local1553539377_0001_r_000000_0 is done. And is in the process of committing
+22/06/27 12:37:28 INFO mapred.LocalJobRunner: 1 / 1 copied.
+22/06/27 12:37:28 INFO mapred.Task: Task attempt_local1553539377_0001_r_000000_0 is allowed to commit now
+22/06/27 12:37:28 INFO output.FileOutputCommitter: Saved output of task 'attempt_local1553539377_0001_r_000000_0' to hdfs://localhost:54310/outputaditi/_temporary/0/task_local1553539377_0001_r_000000
+22/06/27 12:37:28 INFO mapred.LocalJobRunner: reduce > reduce
+22/06/27 12:37:28 INFO mapred.Task: Task 'attempt_local1553539377_0001_r_000000_0' done.
+22/06/27 12:37:28 INFO mapred.LocalJobRunner: Finishing task: attempt_local1553539377_0001_r_000000_0
+22/06/27 12:37:28 INFO mapred.LocalJobRunner: reduce task executor complete.
+22/06/27 12:37:28 INFO mapreduce.Job: Job job_local1553539377_0001 running in uber mode : false
+22/06/27 12:37:28 INFO mapreduce.Job:  map 100% reduce 100%
+22/06/27 12:37:28 INFO mapreduce.Job: Job job_local1553539377_0001 completed successfully
+22/06/27 12:37:28 INFO mapreduce.Job: Counters: 38
+	File System Counters
+		FILE: Number of bytes read=17462
+		FILE: Number of bytes written=518504
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=48
+		HDFS: Number of bytes written=36
+		HDFS: Number of read operations=13
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=4
+	Map-Reduce Framework
+		Map input records=6
+		Map output records=6
+		Map output bytes=48
+		Map output materialized bytes=66
+		Input split bytes=104
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=6
+		Reduce shuffle bytes=66
+		Reduce input records=6
+		Reduce output records=6
+		Spilled Records=12
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=42
+		CPU time spent (ms)=0
+		Physical memory (bytes) snapshot=0
+		Virtual memory (bytes) snapshot=0
+		Total committed heap usage (bytes)=578289664
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=24
+	File Output Format Counters 
+		Bytes Written=36
+hduser@bmsce-Precision-T1700:~$ hadoop fs -ls /outputaditi
+Found 2 items
+-rw-r--r--   1 hduser supergroup          0 2022-06-27 12:37 /outputaditi/_SUCCESS
+-rw-r--r--   1 hduser supergroup         36 2022-06-27 12:37 /outputaditi/part-r-00000
+hduser@bmsce-Precision-T1700:~$ hadoop fs -cat /outputaditi/part-r-00000
+eam	1
+dj	1
+kile	1
+pea	1
+sam	1
+ram	1
+hduser@bmsce-Precision-T1700:~$ 
+
